@@ -36,7 +36,7 @@ pipeline {
 
 
 
-      stage("Quality Gate") {
+      stage('Quality Gate') {
             steps {
               timeout(time: 15, unit: 'MINUTES') { // If analysis takes longer than indicated time, then build will be aborted
                   waitForQualityGate abortPipeline: true
