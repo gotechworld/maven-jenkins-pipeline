@@ -29,10 +29,10 @@ pipeline {
                          sh "mvn -B --color=always verify sonar:sonar \
                                       -Dsonar.projectKey=maven-jenkins-pipeline \
                                       -Dsonar.organization=maven-jenkins-pipeline \
-                                      -Dsonar.host.url=https://sonarcloud.io \
-                                      -Dsonar.login=80b21f2c7896dafe2426aa475bf32f7fbb2ddce7" 
-                    }
-                 }
+                                      -Dsonar.host.url=https://sonarcloud.io 
+                                      //-Dsonar.login=80b21f2c7896dafe2426aa475bf32f7fbb2ddce7" 
+                      }
+                }
       }              
 
 
