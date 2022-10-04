@@ -26,7 +26,7 @@ pipeline {
       stage('SonarCloud Analysis - SAST') {
             steps {
                   withSonarQubeEnv('SonarCloud') {
-           sh "mvn -B verify sonar:sonar \
+           sh "mvn sonar:sonar \
                         -Dsonar.projectKey=maven-jenkins-pipeline \
                         -Dsonar.organization=maven-jenkins-pipeline \
                         -Dsonar.host.url=https://sonarcloud.io \
