@@ -1,5 +1,8 @@
 pipeline {
   agent { label "linux" }
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
   tools {
         maven "Maven 3.8.6" 
    }
@@ -34,10 +37,10 @@ pipeline {
 
       stage('SAST') {
                 steps {
-                      withSonarQubeEnv('SonarQube') {
-                         sh "mvn sonar:sonar \
+                      withSonarQubeEnv('SonarQube-Docker') {
+                         sh "mvn clean verify sonar:sonar \
                               -Dsonar.projectKey=maven-jenkins-pipeline \
-                              -Dsonar.host.url=https://sast.petrugiurca.net"
+                              -Dsonar.host.url=http://157.245.71.113:9000"
                               
                       }
                 }
