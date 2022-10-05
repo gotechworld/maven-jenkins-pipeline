@@ -28,8 +28,8 @@ pipeline {
                       withSonarQubeEnv('SonarQube') {
                          sh "mvn sonar:sonar \
                               -Dsonar.projectKey=maven-jenkins-pipeline \
-                              -Dsonar.host.url=https://sast.petrugiurca.net \
-                              -Dsonar.login=68c1c1f7a09cfa7bc47e181192ed044bee500e81" 
+                              -Dsonar.host.url=https://sast.petrugiurca.net"
+                              
                       }
                 }
       }              
