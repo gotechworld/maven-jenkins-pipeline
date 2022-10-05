@@ -9,7 +9,16 @@ pipeline {
             steps {
               sh "mvn clean package -DskipTests=true"
               archive 'target/*.jar' 
-            }  
+            }
+            post {
+              success {
+                echo 'Successfully build.'
+              }
+
+              failure {
+                echo 'Failed to build.'
+              }
+            }
        }
       stage('Test Maven - JUnit') {
             steps {
@@ -32,6 +41,15 @@ pipeline {
                               
                       }
                 }
+                post {
+                    success {
+                      echo 'Successfully scanned.'
+                    }
+
+                    failure {
+                      echo 'Failed to scan.'
+                    }
+            }
       }              
 
 
@@ -46,6 +64,15 @@ pipeline {
                           error "Pipeline aborted due to quality gate failure: ${qg.status}"
                       }
                   }
+              }
+            }
+            post {
+              success {
+                echo 'Successfully passed.'
+              }
+
+              failure {
+                echo 'Failed to pass.'
               }
             }
       }
