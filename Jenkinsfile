@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { label "linux" }
   tools {
         maven "Maven 3.8.6" 
    }
@@ -68,7 +68,7 @@ pipeline {
             }
             post {
               success {
-                echo 'Successfully passed.'
+                echo 'Successfully QG passed.'
               }
 
               failure {
